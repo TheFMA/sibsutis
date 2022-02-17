@@ -8,8 +8,16 @@ namespace MyApp
     {
         public static void Main(string[] args)
         {
-            int[] customerses = { 4, 6, 3, 8, 12, 2, 7 };
-            long t = HW1.QueueTime(customerses, 3);
+            int[] custom1 = { 5, 3, 4 };
+            long t = HW1.QueueTime(custom1, 1);
+            Console.WriteLine($"Time = {t}");
+
+            int[] custom2 = { 10, 2, 3, 3 };
+            t = HW1.QueueTime(custom2, 2);
+            Console.WriteLine($"Time = {t}");
+
+            int[] custom3 = { 2, 3, 10 };
+            t = HW1.QueueTime(custom3, 2);
             Console.WriteLine($"Time = {t}");
         }
 
@@ -28,6 +36,7 @@ namespace MyApp
                     {
                         time += customers[i];
                     }
+                    return time;
                 }
                 else
                 {
