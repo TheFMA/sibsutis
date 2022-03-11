@@ -8,7 +8,7 @@ int sc_memoryInit()
 //задает значение указанной ячейки памяти как value
 int sc_memorySet(int address, int value)
 {
-    if (address > memory && address < 0)
+    if (address > (memory - 1) && address < 0)
     {
         return OUT_OF_MEMORY;
     }
@@ -21,7 +21,7 @@ int sc_memorySet(int address, int value)
 //возвращает значение указанной ячейки памяти в value
 int sc_memoryGet(int address, int *value)
 {
-    if (address > memory && address < 0)
+    if (address > (memory - 1) && address < 0)
     {
         return OUT_OF_MEMORY;
     }
@@ -132,7 +132,7 @@ int main()
     // sc_memoryLoad(*&a);
     sc_regInit();
     int register1 = 2;
-    int value = 1;
+    int value = 0;
     sc_regSet(register1, value);
     // register1 = 4;
     // value = 1;
@@ -159,6 +159,7 @@ int main()
     sc_regGet(register1, &value);
     sc_commandEncode(command, operand, &value);
     sc_commandDecode(value, &command, &operand);
+    printf("value = %d\n",value);
     printf("%d   %d", command, operand);
     printf("\n");
 }
