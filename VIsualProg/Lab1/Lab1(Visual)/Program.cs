@@ -32,16 +32,10 @@ namespace MyApp
                 long[] tmp = new long[n];
                 if (n == 1)
                 {
-                    for (int i = 0; i < customers.Length; i++)
-                    {
-                        time += customers[i];
-                    }
-                    return time;
+                    return customers.Sum();
                 }
                 else
                 {
-
-
                     for (int i = 0; i < n; i++)
                     {
                         endtime[i] = customers[i];
